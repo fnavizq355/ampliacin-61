@@ -6,8 +6,8 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 input.onButtonPressed(Button.AB, function () {
-    p = 0
-    v = 500
+    puntos = 0
+    espera = 500
     cesta = 2
     basic.showNumber(3)
     basic.showNumber(2)
@@ -15,10 +15,10 @@ input.onButtonPressed(Button.AB, function () {
     basic.clearScreen()
     led.plot(cesta, 4)
     juega = true
-    t = 0
-    while (t <= 5) {
+    tiempo = 0
+    while (tiempo <= 5) {
         basic.pause(1000)
-        t = t + 1
+        tiempo = tiempo + 1
     }
     juega = false
 })
@@ -31,9 +31,9 @@ input.onButtonPressed(Button.B, function () {
 })
 let y = 0
 let x = 0
-let t = 0
-let v = 0
-let p = 0
+let tiempo = 0
+let espera = 0
+let puntos = 0
 let cesta = 0
 let juega = false
 juega = false
@@ -43,7 +43,7 @@ basic.forever(function () {
         y = 0
         led.plot(x, y)
         for (let index = 0; index < 4; index++) {
-            basic.pause(v)
+            basic.pause(espera)
             if (!(juega)) {
                 break;
             } else {
@@ -53,15 +53,15 @@ basic.forever(function () {
             }
         }
         if (x == cesta && y == 4) {
-            p = p + 1
-            v = v - 25
+            puntos = puntos + 1
+            espera = espera - 25
         } else if (juega) {
             led.unplot(x, y)
         } else {
-            basic.showNumber(p)
+            basic.showNumber(puntos)
             basic.pause(500)
             basic.clearScreen()
         }
-        basic.pause(v)
+        basic.pause(espera)
     }
 })
