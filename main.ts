@@ -25,7 +25,7 @@ cesta = 2
 led.plot(cesta, 4)
 basic.forever(function () {
     if (t <= fin) {
-        x = randint(1, 4)
+        x = randint(0, 4)
         y = 0
         led.plot(x, y)
         for (let index = 0; index < 4; index++) {
