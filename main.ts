@@ -1,12 +1,12 @@
 input.onButtonPressed(Button.A, function () {
-    if (cesta != 0 && fin == 0) {
+    if (cesta > 0 && fin == 0) {
         led.unplot(cesta, 4)
         cesta = cesta - 1
         led.plot(cesta, 4)
     }
 })
 input.onButtonPressed(Button.B, function () {
-    if (cesta != 4 && fin == 0) {
+    if (cesta < 4 && fin == 0) {
         led.unplot(cesta, 4)
         cesta = cesta + 1
         led.plot(cesta, 4)
