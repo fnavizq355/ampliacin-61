@@ -44,7 +44,7 @@ basic.forever(function () {
         } else if (t <= fin) {
             led.unplot(x, y)
         } else {
-            basic.showString("" + (p))
+            basic.showNumber(p)
         }
         basic.pause(v)
     }
