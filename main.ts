@@ -1,11 +1,3 @@
-function caer () {
-    while (juega && y <= 4) {
-        led.plot(x, y)
-        basic.pause(espera)
-        led.unplot(x, y)
-        y = y + 1
-    }
-}
 function final () {
     basic.clearScreen()
     basic.showNumber(puntos)
@@ -43,20 +35,28 @@ input.onButtonPressed(Button.B, function () {
         led.plot(cesta, 4)
     }
 })
-let cesta = 0
-let puntos = 0
-let espera = 0
-let x = 0
-let y = 0
-let juega = false
-juega = false
-basic.forever(function () {
+function manzana () {
     x = randint(0, 4)
     y = 0
-    caer()
+    while (juega && y <= 4) {
+        led.plot(x, y)
+        basic.pause(espera)
+        led.unplot(x, y)
+        y = y + 1
+    }
     if (juega) {
         led.plot(cesta, 4)
     }
+}
+let y = 0
+let x = 0
+let espera = 0
+let cesta = 0
+let puntos = 0
+let juega = false
+juega = false
+basic.forever(function () {
+    manzana()
     if (x == cesta && y == 4) {
         puntos = puntos + 1
         espera = espera - 25
